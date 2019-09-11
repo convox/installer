@@ -4,13 +4,7 @@ Examples to stand up a [Convox Rack](https://github.com/convox/convox) using Ter
 
 ## Usage
 
-* Clone this repository locally
+Go into the appropriate subdirectory and run
 
-* Go into the appropriate subdirectory
-
-* Apply the terraform template
-
-```
-$ terraform init
-$ terraform apply
-```
+    $ terraform init
+    $ terraform apply
