@@ -4,7 +4,11 @@ Examples to stand up a [Convox Rack](https://github.com/convox/convox) using Ter
 
 ## Usage
 
-    $ git clone https://github.com/convox-examples/terraform
-    $ cd terraform/gcp
+* Clone this repository locally
+
+* Go into the appropriate subdirectory
+
+* Apply the terraform template
+
     $ terraform init
     $ terraform apply
