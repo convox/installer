@@ -28,10 +28,6 @@ variable "region" {
   default     = "us-east1"
 }
 
-locals {
-  domain = "${var.name}.${replace(data.google_dns_managed_zone.zone.dns_name, "/^(.*)\\.$/", "$1")}"
-}
-
 provider "google" {
   version = "~> 2.12"
 

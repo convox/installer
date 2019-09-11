@@ -6,4 +6,5 @@ Examples to stand up a [Convox Rack](https://github.com/convox/convox) using Ter
 
     $ git clone https://github.com/convox-examples/terraform
     $ cd terraform/gcp
+    $ terraform init
     $ terraform apply
