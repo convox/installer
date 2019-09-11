@@ -3,11 +3,6 @@ variable "credentials" {
   default     = "~/.config/gcloud/terraform.json"
 }
 
-variable "domain" {
-  description = "rack base domain, you will need to point *.domain at the output named endpoint"
-  type        = "string"
-}
-
 variable "name" {
   description = "rack name"
   default     = "convox"
@@ -28,6 +23,15 @@ variable "region" {
   default     = "us-east1"
 }
 
+variable "zone" {
+  description = "name of gcp managed zone in which to add a cname for this rack"
+  type        = "string"
+}
+
+locals {
+  domain = "${var.name}.${replace(data.google_dns_managed_zone.zone.dns_name, "/^(.*)\\.$/", "$1")}"
+}
+
 provider "google" {
   version = "~> 2.12"
 
@@ -36,20 +40,28 @@ provider "google" {
   region      = var.region
 }
 
+data "google_dns_managed_zone" "zone" {
+  name = var.zone
+}
+
+resource "google_dns_record_set" "system" {
+  managed_zone = var.zone
+  name         = "*.${local.domain}."
+  rrdatas      = [module.system.endpoint]
+  type         = "A"
+  ttl          = 60
+}
+
 module "system" {
   source = "github.com/convox/terraform//system/gcp"
 
-  domain  = var.domain
+  domain  = local.domain
   name    = var.name
   release = var.release
 
   providers = {
     google = google
   }
-}
-
-output "endpoint" {
-  value = module.system.endpoint
 }
 
 output "rack_url" {
