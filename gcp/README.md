@@ -13,17 +13,18 @@
 - Select key type JSON
 - Click create
 - Download the credential file
-- Rename the credential file "terraform.json"
 - Copy the credential file to ~/.config/gcloud/terraform.json
 - Clone https://github.com/convox-examples/terraform into a local directory and change to that directory
 - Go into the gcp subdirectory
 - Run `terraform init`
 - Run `terraform apply`
 - When prompted enter the name of a domain that you have DNS control over
+  - for example: `convox.mydomain.com`
 - When prompted enter the ID (not the name) of the GCP project your created at the beginning of this process
 - Follow the terraform prompts 
 - When terraform apply completes you should see an output  named rack_url. Set a local environment variable named RACK_URL to that value in your shell
-- Set the wildcard *. A record for the domain entered previously to the value of the endpoint output
+- Set the wildcard `*.` A record for the domain entered previously to the value of the endpoint output
+  - for example: `*.convox.mydomain.com A [OUTPUT_IP_ADDRESS]`
 - Run `convox rack` and verify your output looks something like
 ```
 Name      convox
