@@ -1,5 +1,8 @@
+## Launching a Convox Rack on GCP and deploying and application
+
 - Install the latest Convox CLI for your operating system using the instructions found here: https://docs.convox.com/introduction/installation
 - Run `convox update`
+- Create a [convox.yml](https://docs.convox.com/application/convox-yml) file to describe your application
 - Sign up for GCP if you have not already (https://console.cloud.google.com)
 - In the GCP dashboard create a new project and switch to it, note the ID of the project
 - Go to https://console.cloud.google.com/apis/credentials/serviceaccountkey
