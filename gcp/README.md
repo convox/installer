@@ -1,4 +1,4 @@
-## Launching a Convox Rack on GCP and deploying and application
+## Launching a Convox Rack on GCP and deploying an application
 
 - Install the latest Convox CLI for your operating system using the instructions found here: https://docs.convox.com/introduction/installation
 - Run `convox update`
