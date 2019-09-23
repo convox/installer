@@ -8,8 +8,13 @@ variable "name" {
   default     = "convox"
 }
 
+variable "node_type" {
+  description = "machine type of the cluster nodes"
+  default     = "n1-standard-1"
+}
+
 variable "project" {
-  description = "gcp project in which to install the rack"
+  description = "id of gcp project in which to install the rack"
   type        = "string"
 }
 
@@ -53,11 +58,13 @@ resource "google_dns_record_set" "system" {
 }
 
 module "system" {
-  source = "github.com/convox/terraform//system/gcp"
+  #source = "github.com/convox/terraform//system/gcp"
+  source = "../../../terraform/system/gcp"
 
-  domain  = local.domain
-  name    = var.name
-  release = var.release
+  domain    = local.domain
+  name      = var.name
+  node_type = var.node_type
+  release   = var.release
 
   providers = {
     google = google

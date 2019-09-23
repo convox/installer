@@ -3,6 +3,11 @@ variable "name" {
   default     = "convox"
 }
 
+variable "node_type" {
+  description = "machine type of the cluster nodes"
+  default     = "t3.small"
+}
+
 variable "release" {
   description = "convox release version to install"
   default     = "master"
@@ -43,10 +48,11 @@ resource "aws_route53_record" "system" {
 module "system" {
   source = "github.com/convox/terraform//system/aws"
 
-  domain  = local.domain
-  name    = var.name
-  release = var.release
-  ssh_key = var.ssh_key
+  domain    = local.domain
+  name      = var.name
+  node_type = var.node_type
+  release   = var.release
+  ssh_key   = var.ssh_key
 
   providers = {
     aws = aws

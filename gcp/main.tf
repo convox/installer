@@ -13,6 +13,11 @@ variable "name" {
   default     = "convox"
 }
 
+variable "node_type" {
+  description = "machine type of the cluster nodes"
+  default     = "n1-standard-1"
+}
+
 variable "project" {
   description = "gcp project in which to install the rack"
   type        = "string"
@@ -39,9 +44,10 @@ provider "google" {
 module "system" {
   source = "github.com/convox/terraform//system/gcp"
 
-  domain  = var.domain
-  name    = var.name
-  release = var.release
+  domain    = var.domain
+  name      = var.name
+  node_type = var.node_type
+  release   = var.release
 
   providers = {
     google = google
