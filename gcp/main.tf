@@ -25,7 +25,7 @@ variable "project" {
 
 variable "release" {
   description = "convox release version to install"
-  default     = "master"
+  default     = ""
 }
 
 variable "region" {

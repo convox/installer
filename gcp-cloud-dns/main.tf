@@ -20,7 +20,7 @@ variable "project" {
 
 variable "release" {
   description = "convox release version to install"
-  default     = "master"
+  default     = ""
 }
 
 variable "region" {
@@ -58,8 +58,7 @@ resource "google_dns_record_set" "system" {
 }
 
 module "system" {
-  #source = "github.com/convox/terraform//system/gcp"
-  source = "../../../terraform/system/gcp"
+  source = "github.com/convox/terraform//system/gcp"
 
   domain    = local.domain
   name      = var.name
