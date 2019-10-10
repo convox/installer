@@ -42,7 +42,7 @@ provider "google" {
 }
 
 module "system" {
-  source = "github.com/convox/terraform//system/gcp"
+  source = "github.com/convox/convox//terraform/system/gcp"
 
   domain    = var.domain
   name      = var.name

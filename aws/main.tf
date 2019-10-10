@@ -35,7 +35,7 @@ provider "aws" {
 }
 
 module "system" {
-  source = "github.com/convox/terraform//system/aws"
+  source = "github.com/convox/convox//terraform/system/aws"
 
   domain    = var.domain
   name      = var.name

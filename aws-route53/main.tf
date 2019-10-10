@@ -46,7 +46,7 @@ resource "aws_route53_record" "system" {
 }
 
 module "system" {
-  source = "github.com/convox/terraform//system/aws"
+  source = "github.com/convox/convox//terraform/system/aws"
 
   domain    = local.domain
   name      = var.name
