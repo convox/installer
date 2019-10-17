@@ -19,7 +19,7 @@
   - for example: `convox.mydomain.com`
 - Follow the terraform prompts 
 - When `terraform apply` completes you should see an output named `rack_url`. Set a local environment variable named `RACK_URL` to that value in your shell
-  - `$ export RACK_URL=https://convox:ebXYv6904JMpA7ArnFhw9Ml1iJtOa3cZhP4pWyVrOShl4xZpBvADeOqr7aByxQ1R@api.convox.mydomain.com=`
+  - `$ export RACK_URL=https://convox:password@api.convox.mydomain.com=`
 - Set the wildcard `*.` A record for the domain entered previously to the value of the endpoint output
   - for example: `*.convox.mydomain.com A [OUTPUT_IP_ADDRESS]`
 - Run `convox rack` and verify your output looks something like
