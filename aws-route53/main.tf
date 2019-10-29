@@ -23,6 +23,11 @@ variable "ssh_key" {
   default     = ""
 }
 
+variable "zone" {
+  description = "name of route53 hosted zone in which to add a cname for this rack"
+  type        = "string"
+}
+
 locals {
   domain = "${var.name}.${replace(data.aws_route53_zone.zone.name, "/^(.*)\\.$/", "$1")}"
 }
