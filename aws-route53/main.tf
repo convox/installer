@@ -24,7 +24,7 @@ variable "ssh_key" {
 }
 
 variable "zone" {
-  description = "name of route53 hosted zone in which to add a cname for this rack"
+  description = "id of route53 hosted zone in which to add a cname for this rack"
   type        = "string"
 }
 
