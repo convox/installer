@@ -38,7 +38,15 @@ locals {
 }
 
 provider "google" {
-  version = "~> 2.12"
+  version = "~> 2.18"
+
+  credentials = pathexpand(var.credentials)
+  project     = var.project
+  region      = var.region
+}
+
+provider "google-beta" {
+  version = "~> 2.18"
 
   credentials = pathexpand(var.credentials)
   project     = var.project
@@ -66,7 +74,8 @@ module "system" {
   release   = var.release
 
   providers = {
-    google = google
+    google      = google
+    google-beta = google-beta
   }
 }
 

@@ -41,6 +41,14 @@ provider "google" {
   region      = var.region
 }
 
+provider "google-beta" {
+  version = "~> 2.18"
+
+  credentials = pathexpand(var.credentials)
+  project     = var.project
+  region      = var.region
+}
+
 module "system" {
   source = "github.com/convox/convox//terraform/system/gcp"
 
@@ -50,7 +58,8 @@ module "system" {
   release   = var.release
 
   providers = {
-    google = google
+    google      = google
+    google-beta = google-beta
   }
 }
 
