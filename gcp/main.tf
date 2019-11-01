@@ -3,11 +3,6 @@ variable "credentials" {
   default     = "~/.config/gcloud/terraform.json"
 }
 
-variable "domain" {
-  description = "rack base domain, you will need to point *.domain at the output named endpoint"
-  type        = "string"
-}
-
 variable "name" {
   description = "rack name"
   default     = "convox"
@@ -19,7 +14,7 @@ variable "node_type" {
 }
 
 variable "project" {
-  description = "gcp project in which to install the rack"
+  description = "id of gcp project in which to install the rack"
   type        = "string"
 }
 
@@ -34,7 +29,7 @@ variable "region" {
 }
 
 provider "google" {
-  version = "~> 2.12"
+  version = "~> 2.18"
 
   credentials = pathexpand(var.credentials)
   project     = var.project
@@ -52,7 +47,6 @@ provider "google-beta" {
 module "system" {
   source = "github.com/convox/convox//terraform/system/gcp"
 
-  domain    = var.domain
   name      = var.name
   node_type = var.node_type
   release   = var.release
@@ -61,10 +55,6 @@ module "system" {
     google      = google
     google-beta = google-beta
   }
-}
-
-output "endpoint" {
-  value = module.system.endpoint
 }
 
 output "rack_url" {
