@@ -15,8 +15,9 @@ Convox uses [Terraform](https://www.terraform.io/) for installation.
 
 Go into the relevant subdirectory of this repository and follow the instructions in the `README`:
 
-* [aws](/aws)
-* [gcp](/gcp)
+* [aws](/aws) **Amazon Web Services**
+* [di](/do) **Digital Ocean**
+* [gcp](/gcp) **Google Cloud**
 
 ## Features
 
