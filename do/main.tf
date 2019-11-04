@@ -43,7 +43,7 @@ provider "digitalocean" {
 }
 
 module "system" {
-  source = "github.com/convox/convox//terraform/system/gcp"
+  source = "github.com/convox/convox//terraform/system/do"
 
   access_id  = var.access_id
   name       = var.name
