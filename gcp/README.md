@@ -18,6 +18,7 @@
 
 - Clone this repository and switch to the directory containing this `README`
 - Run `terraform init`
+- Run `terraform apply -target module.system.module.project` to enable necessary services in your project
 - Run `terraform apply`
 
 ## Convox CLI Setup
