@@ -51,6 +51,7 @@ module "system" {
   release    = var.release
   region     = var.region
   secret_key = var.secret_key
+  token      = var.token
 
   providers = {
     digitalocean = digitalocean
