@@ -23,6 +23,11 @@ variable "region" {
   default     = "nyc3"
 }
 
+variable "registry_disk" {
+  description = "size of the registry disk volume"
+  default     = "50Gi"
+}
+
 variable "secret_key" {
   description = "spaces secret key"
   type        = "string"
@@ -45,13 +50,14 @@ provider "digitalocean" {
 module "system" {
   source = "github.com/convox/convox//terraform/system/do"
 
-  access_id  = var.access_id
-  name       = var.name
-  node_type  = var.node_type
-  release    = var.release
-  region     = var.region
-  secret_key = var.secret_key
-  token      = var.token
+  access_id     = var.access_id
+  name          = var.name
+  node_type     = var.node_type
+  release       = var.release
+  region        = var.region
+  registry_disk = var.registry_disk
+  secret_key    = var.secret_key
+  token         = var.token
 
   providers = {
     digitalocean = digitalocean
