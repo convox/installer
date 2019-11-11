@@ -29,7 +29,7 @@ variable "region" {
 }
 
 provider "google" {
-  version = "~> 2.18"
+  version = "~> 2.19"
 
   credentials = pathexpand(var.credentials)
   project     = var.project
@@ -37,7 +37,7 @@ provider "google" {
 }
 
 provider "google-beta" {
-  version = "~> 2.18"
+  version = "~> 2.19"
 
   credentials = pathexpand(var.credentials)
   project     = var.project
