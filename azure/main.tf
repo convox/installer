@@ -23,7 +23,7 @@ provider "azurerm" {
 }
 
 module "system" {
-  source = "../../convox/terraform/system/azure"
+  source = "github.com/convox/convox//terraform/system/azure"
 
   providers = {
     azurerm = azurerm
