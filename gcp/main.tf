@@ -45,7 +45,7 @@ provider "google-beta" {
 }
 
 module "system" {
-  source = "github.com/convox/convox//terraform/system/gcp"
+  source = "../../convox/terraform/system/gcp"
 
   name      = var.name
   node_type = var.node_type

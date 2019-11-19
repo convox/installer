@@ -25,7 +25,7 @@ provider "aws" {
 }
 
 module "system" {
-  source = "github.com/convox/convox//terraform/system/aws"
+  source = "../../convox/terraform/system/aws"
 
   name      = var.name
   node_type = var.node_type
