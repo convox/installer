@@ -1,18 +1,3 @@
 # Convox Rack on Azure
 
-## Initial Setup
-
-- [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-- Run `az login`
-
-## Install Convox
-
-- Clone this repository and switch to the directory containing this `README`
-- Run `terraform init`
-- Run `terraform apply`
-
-## Convox CLI Setup
-
-- [Install the Convox CLI](https://docs.convox.com/introduction/installation)
-- Run `export RACK_URL=$(terraform output rack_url)`
-- Run `convox rack` to ensure that your CLI is connected to your new Rack
+The installer has been moved to [the main repository](https://github.com/convox/convox/tree/master/install/azure)
